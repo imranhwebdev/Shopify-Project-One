@@ -8,25 +8,22 @@
  * ------------------------------------------------------------
  */
 {
-    "name": "Header Group",
-    "type": "header",
-    "sections": {
-        "announcement":{
-            "type": "announcementbar",
-            "settings": {
-
-            },
-        },
-        
-        "header": {
-            "type":"header",
-            "settings": {
-
-            }
-        }
+  "name": "Header Group",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "announcementbar",
+      "settings": {
+        "message": "25% off only for jashore"
+      }
     },
-    "order":[
-        "announcement",
-        "header"
-    ]
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
 }
