@@ -44,18 +44,11 @@
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
     {{ 'header.css' | asset_url | stylesheet_tag }}
-
+    {{ 'main.js' | asset_url | script_tag }}
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
-      }
-    </script>
-    <script>
-      {
-        {
-          'main.js' | asset_url | script_tag;
-        }
       }
     </script>
   </head>
