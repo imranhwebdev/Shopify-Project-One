@@ -1,11 +1,11 @@
 <a href="{{ shop.url }}" class="text-xl font-bold text-gray-900 hover:text-blue-600 inline-block">
   {% if settings.logo != blank %}
     <img
-      src="{{ settings.logo | image_url: width: 100 }}"
+      src="{{ settings.logo | image_url:'small' }}"
       alt="{{ shop.name }}"
       width="120"
       height="40"
-      class="w-[200px] h-[120px]"
+      class="w-[200px] h-[70px]"
       loading="lazy"
     >
   {% else %}
