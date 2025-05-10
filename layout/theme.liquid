@@ -43,6 +43,8 @@
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
 
+    {{ 'header.css' | asset_url | stylesheet_tag }}
+
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
@@ -92,5 +94,6 @@
       };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="/assets/main.js"></script>
   </body>
 </html>

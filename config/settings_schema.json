@@ -8,6 +8,27 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
+    "name": "Header Settings",
+    "settings": [
+      {
+        "type": "url",
+        "id": "buy_now_url",
+        "label": "Buy Now Button URL",
+        "default": "https://your-buy-link.com"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter URL"
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {

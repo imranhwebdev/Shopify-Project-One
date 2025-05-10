@@ -1,12 +1,128 @@
-<div class="header">
-    <p>header</p>
-</div>
+<!-- Header Start -->
+<header class="heading bg-[#F7FAF9]">
+  <div class="container mx-auto">
+    <div id="collapseMenu" class="heading-wrap flex items-center justify-between p-3">
+      <a href="{{ shop.url }}" class="text-xl font-bold text-gray-900 hover:text-blue-600 inline-block">
+        {% if settings.logo != blank %}
+          <img
+            src="{{ settings.logo | img_url:'small' }}"
+            alt="{{ shop.name }}"
+            width="120"
+            height=""
+          >
+        {% else %}
+          {{ shop.name }}
+        {% endif %}
+      </a>
+      <nav class="heading-menu">
+        <div class="title flex items-center justify-between lg:!hidden">
+          <a href="{{ shop.url }}" class="text-xl font-bold text-gray-900 hover:text-blue-600 inline-block">
+            {% if settings.logo != blank %}
+              <img
+                src="{{ settings.logo | img_url:'small' }}"
+                alt="{{ shop.name }}"
+                width="120"
+                height=""
+              >
+            {% else %}
+              {{ shop.name }}
+            {% endif %}
+          </a>
+          <button class="heading-toggler cursor-pointer hover:opacity-50 transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              class="size-8 md:size-10"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="lg:flex items-center">
+          {% for link in section.settings.menu.links %}
+            <li class="block">
+              <a href="{{link.url}}" class="heading-link capitalize">{{ link.title }}</a>
+            </li>
+
+            {% if link.links.size > 0 %}
+              <li class="block group relative">
+                <a href="{{link.url}}" class="heading-link capitalize !flex">
+                  {{- link.title }}
+                </a>
+                <ul class="submenu absolute top-10 max-lg:top-8  left-0 md:left-1/2 md:translate-x-[-50%] z-50 block space-y-2 shadow-lg  max-h-0 overflow-hidden w-max opacity-0  group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]">
+                  {% for child in link.links %}
+                    <li>
+                      <a href="{{child.url}}" class="block ps-10">{{ child.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="heading-actions flex items-center flex-wrap gap-2">
+        <div class="group relative hidden lg:block">
+          <a href="javascript:void(0)" class="!flex btn !bg-transparent items-center gap-2 !pe-[10px]"
+            >EN
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </a>
+          <ul class="absolute submenu top-12 max-lg:top-8 left-0 md:left-1/2 md:translate-x-[-50%]  z-50 block space-y-2 shadow-lg max-h-0 overflow-hidden w-max opacity-0 group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-4 transition-all duration-[400ms]">
+            <li>
+              <a href="javascript:void(0)">ENGLISH (EN)</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)"> CHINES (ZH)</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">RUSSIAN (RU)</a>
+            </li>
+          </ul>
+        </div>
+        <a href="#" target="_blank" class="boxed-btn hidden lg:block">Sign In</a>
+        <button class="heading-toggler lg:!hidden cursor-pointer hover:opacity-50 transition">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="black"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            class="size-8 md:size-10"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
 
 {% schema %}
 {
-    "name": "Header",
-    "settings": [
-        
-        ]
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
+    }
+  ]
 }
 {% endschema %}
+
+
+
+
