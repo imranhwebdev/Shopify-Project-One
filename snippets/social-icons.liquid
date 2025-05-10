@@ -1,0 +1,17 @@
+<!-- snippets/social-icons.liquid -->
+<div class="flex gap-2">
+  {% if settings.social_facebook != blank %}
+    <a href="{{ settings.social_facebook }}" target="_blank" class="text-gray-500 hover:text-blue-600">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M..." /> <!-- Facebook Icon Path -->
+      </svg>
+    </a>
+  {% endif %}
+  {% if settings.social_twitter != blank %}
+    <a href="{{ settings.social_twitter }}" target="_blank" class="text-gray-500 hover:text-blue-400">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M..." /> <!-- Twitter Icon Path -->
+      </svg>
+    </a>
+  {% endif %}
+</div>
