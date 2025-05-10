@@ -93,7 +93,14 @@
         unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
       };
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="/assets/main.js"></script>
+    <script>
+      {
+        {
+          'main.js' | asset_url | script_tag;
+        }
+      }
+    </script>
   </body>
 </html>
