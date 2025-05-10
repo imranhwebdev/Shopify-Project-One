@@ -19,8 +19,9 @@
     },
     "header": {
       "type": "header",
-      "custom_css": [],
-      "settings": {}
+      "settings": {
+        "menu": "main-menu"
+      }
     }
   },
   "order": [
