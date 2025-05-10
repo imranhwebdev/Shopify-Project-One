@@ -19,6 +19,9 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [
+        "button{font-size: 20px}"
+      ],
       "settings": {}
     }
   },
