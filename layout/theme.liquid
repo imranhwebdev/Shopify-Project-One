@@ -42,9 +42,9 @@
     {%- endunless -%}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
-
+    {{ 'output.css' | asset_url | stylesheet_tag }}
     {{ 'header.css' | asset_url | stylesheet_tag }}
-
+    {{ 'main.js' | asset_url | script_tag }}
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
       if (Shopify.designMode) {
@@ -93,7 +93,5 @@
         unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
       };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="/assets/main.js"></script>
   </body>
 </html>
