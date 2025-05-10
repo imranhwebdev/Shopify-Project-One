@@ -1,50 +1,87 @@
-<!-- sections/header.liquid -->
-<header id="header" class="z-50 transition-all duration-300">
-  <div class="container mx-auto flex items-center justify-between border border-gray-200 bg-white py-2.5 px-3 md:px-5">
-    {% render 'logo' %}
-
-    <nav id="navMenu" class="heading-menu hidden lg:flex flex-col lg:flex-row gap-4">
-      <ul class="flex flex-col lg:flex-row gap-4">
-        <li><a href="#about" class="uppercase text-gray-900 hover:text-blue-600">about</a></li>
-        <li><a href="#whats-coming" class="uppercase text-gray-900 hover:text-blue-600">what’s coming</a></li>
-        <li><a href="#howTo" class="uppercase text-gray-900 hover:text-blue-600">HOW TO BUY</a></li>
-        <li><a href="#tokenomics" class="uppercase text-gray-900 hover:text-blue-600">Tokenomics</a></li>
-        <li class="lg:hidden flex items-center mt-3">
-          {% render 'social-icons' %}
-          <a href="{{ settings.buy_now_url }}" class="btn ml-4">Meet bito</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="flex items-center gap-4">
-      {% render 'social-icons' %}
-      <a href="{{ settings.buy_now_url }}" class="btn ml-4 hidden md:inline-block">Meet bito</a>
-      <button id="menuOpenBtn" class="lg:hidden ml-3 text-gray-700">☰</button>
+<!-- Header Start -->
+<header class="heading bg-[#F7FAF9]">
+  <div class="container mx-auto">
+    <div id="collapseMenu" class="heading-wrap flex items-center justify-between p-3">
+      {% render 'logo' %}
+      <nav class="heading-menu">
+        <div class="title flex items-center justify-between lg:!hidden">
+          {% render 'logo' %}
+          <button class="heading-toggler cursor-pointer hover:opacity-50 transition">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              class="size-8 md:size-10"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <ul class="lg:flex items-center">
+          {% for link in section.settings.menu.links %}
+            <li class="block">
+              <a href="{{link.url}}" class="heading-link capitalize">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <div class="heading-actions flex items-center flex-wrap gap-2">
+        <div class="group relative hidden lg:block">
+          <a href="javascript:void(0)" class="!flex btn !bg-transparent items-center gap-2 !pe-[10px]"
+            >EN
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+          </a>
+          <ul class="absolute submenu top-12 max-lg:top-8 left-0 md:left-1/2 md:translate-x-[-50%]  z-50 block space-y-2 shadow-lg max-h-0 overflow-hidden w-max opacity-0 group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-4 transition-all duration-[400ms]">
+            <li>
+              <a href="javascript:void(0)">ENGLISH (EN)</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)"> CHINES (ZH)</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">RUSSIAN (RU)</a>
+            </li>
+          </ul>
+        </div>
+        <a href="#" target="_blank" class="boxed-btn hidden lg:block">Sign In</a>
+        <button class="heading-toggler lg:!hidden cursor-pointer hover:opacity-50 transition">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            class="size-8 md:size-10"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
 
-<script>
-  const navMenu = document.getElementById('navMenu');
-  const menuOpenBtn = document.getElementById('menuOpenBtn');
-  let isMenuOpen = false;
-
-  menuOpenBtn?.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    navMenu.classList.toggle('hidden', !isMenuOpen);
-    document.body.classList.toggle('overflow-hidden', isMenuOpen);
-  });
-
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const header = document.getElementById('header');
-    const currentScroll = window.scrollY;
-
-    if (currentScroll === 0 || currentScroll < lastScroll) {
-      header.classList.add('fixed', 'top-0', 'w-full');
-    } else {
-      header.classList.remove('fixed');
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu"
     }
-    lastScroll = currentScroll;
-  });
-</script>
+  ]
+}
+{% endschema %}
