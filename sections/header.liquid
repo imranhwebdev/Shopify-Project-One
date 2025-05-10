@@ -24,6 +24,21 @@
             <li class="block">
               <a href="{{link.url}}" class="heading-link capitalize">{{ link.title }}</a>
             </li>
+
+            {% if link.links.size > 0 %}
+              <li class="block group relative">
+                <a href="{{link.url}}" class="heading-link capitalize !flex">
+                  {{- link.title }}
+                </a>
+                <ul class="submenu absolute top-10 max-lg:top-8  left-0 md:left-1/2 md:translate-x-[-50%] z-50 block space-y-2 shadow-lg  max-h-0 overflow-hidden w-max opacity-0  group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]">
+                  {% for child in link.links %}
+                    <li>
+                      <a href="{{child.url}}" class="block ps-10">{{child.title}}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
       </nav>
@@ -58,7 +73,7 @@
         <button class="heading-toggler lg:!hidden cursor-pointer hover:opacity-50 transition">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill="black"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
