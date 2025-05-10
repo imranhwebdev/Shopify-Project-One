@@ -2,10 +2,34 @@
 <header class="heading bg-[#F7FAF9]">
   <div class="container mx-auto">
     <div id="collapseMenu" class="heading-wrap flex items-center justify-between p-3">
-      {% render 'logo' %}
+      <a href="{{ shop.url }}" class="text-xl font-bold text-gray-900 hover:text-blue-600 inline-block">
+        {% if settings.logo != blank %}
+          <img
+            src="{{ settings.logo | img_url:'small' }}"
+            alt="{{ shop.name }}"
+            width="120"
+            height="40"
+            class="w-[200px] h-[70px]"
+          >
+        {% else %}
+          {{ shop.name }}
+        {% endif %}
+      </a>
       <nav class="heading-menu">
         <div class="title flex items-center justify-between lg:!hidden">
-          {% render 'logo' %}
+          <a href="{{ shop.url }}" class="text-xl font-bold text-gray-900 hover:text-blue-600 inline-block">
+            {% if settings.logo != blank %}
+              <img
+                src="{{ settings.logo | img_url:'small' }}"
+                alt="{{ shop.name }}"
+                width="120"
+                height="40"
+                class="w-[200px] h-[70px]"
+              >
+            {% else %}
+              {{ shop.name }}
+            {% endif %}
+          </a>
           <button class="heading-toggler cursor-pointer hover:opacity-50 transition">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +57,7 @@
                 <ul class="submenu absolute top-10 max-lg:top-8  left-0 md:left-1/2 md:translate-x-[-50%] z-50 block space-y-2 shadow-lg  max-h-0 overflow-hidden w-max opacity-0  group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]">
                   {% for child in link.links %}
                     <li>
-                      <a href="{{child.url}}" class="block ps-10">{{child.title}}</a>
+                      <a href="{{child.url}}" class="block ps-10">{{ child.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>
