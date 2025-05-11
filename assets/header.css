@@ -18,18 +18,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .heading {
-    padding: 24px 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .heading {
-    padding: 20px 0;
-  }
-}
-
 .heading.position-fixed {
   position: fixed;
   animation: headerAnimation 0.5s linear;
