@@ -2,3 +2,24 @@ html{
     margin: 0;
     padding: 0;
 }
+.container{
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+svg{
+    width: 100%;
+    height: auto;
+}
+.btn{
+    background: #6A757E;
+    padding: 15px 30px;
+    display: inline-block;
+    border-radius: 5px;
+    color: white;
+    text-transform: capitalize;
+    transition: all .3s ease-in-out;
+}
+.btn:hover{
+    background:#A438B6;
+}

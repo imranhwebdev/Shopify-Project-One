@@ -18,24 +18,15 @@
   }
 }
 
-@media (max-width: 768px) {
-  .heading {
-    padding: 24px 0;
-  }
-}
-
-@media (max-width: 640px) {
-  .heading {
-    padding: 20px 0;
-  }
-}
-
 .heading.position-fixed {
   position: fixed;
   animation: headerAnimation 0.5s linear;
   background: rgba(18, 18, 18, 0.753);
   backdrop-filter: blur(0px);
-  padding: 12px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
 }
 
 @media (max-width: 768px) {
@@ -51,6 +42,10 @@
 }
 
 
+.heading  svg{
+    width: 20px;
+    height: auto;
+}
 
 @media (max-width: 1024px) {
   .heading-menu {
@@ -118,8 +113,10 @@
   display: block;
   padding: 0 12px;
   cursor: pointer;
+} 
+.heading.position-fixed  .heading-link{
+  color: white;
 }
-
 @media (max-width: 1024px) {
   .heading-link {
     padding: 10px 10px;

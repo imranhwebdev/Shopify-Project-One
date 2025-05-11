@@ -1,0 +1,69 @@
+{% assign collection = collections[section.settings.products] %}
+<div class="featured-collection-section pt-16 pb-10">
+  <div class="container">
+    <div class="section-title text-center py-5 mb-5">
+      <h1 class="heading text-5xl font-semibold mb-3">{{ section.settings.title }}</h1>
+      {%- if section.settings.sub_title != blank -%}
+        <p class="sub-heading">
+          {{ section.settings.sub_title }}
+        </p>
+      {%- endif -%}
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {%- for product in collection -%}
+        <div class="product-card rounded-lg p-4 shadow hover:shadow-lg transition-all">
+          {{ product.featured_image | image_url: width: 300 | image_tag }}
+          <div class="product-info pt-3">
+            <h4 class="text-xl capitalize font-medium mb-2">{{ product.title }}</h4>
+            <p class="mb-3">price: {{ product.price | money }}</p>
+            <a href="{{product.url}}" class="btn w-full text-center transition">view details</a>
+          </div>
+        </div>
+      {% else %}
+        {% for item in (1..8) %}
+          <div class="product-card rounded-lg p-4 shadow hover:shadow-lg transition-all">
+            {%- capture current -%} 
+                {%- cycle 1,2,3,4 -%}
+            {%- endcapture -%}
+            {{ 'product-apparel-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            <div class="product-info pt-3">
+              <h4 class="text-xl capitalize font-medium mb-2">product: {{ forloop.index }}</h4>
+              <p class="mb-3">price: $24.00</p>
+              <a href="{{product.url}}" class="btn w-full text-center transition">view details</a>
+            </div>
+          </div>
+        {% endfor %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "sub_title",
+      "label": "Sub Title",
+      "default": "Lorem Ipsumis simply dummy text of the printing and typesetting industry."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Select collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured collection",
+      "category": "collection"
+    }
+  ]
+}
+{% endschema %}
