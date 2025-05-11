@@ -35,7 +35,9 @@
   animation: headerAnimation 0.5s linear;
   background: rgba(18, 18, 18, 0.753);
   backdrop-filter: blur(0px);
-  padding: 12px 0;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -118,8 +120,10 @@
   display: block;
   padding: 0 12px;
   cursor: pointer;
+} 
+.heading.position-fixed  .heading-link{
+  color: white;
 }
-
 @media (max-width: 1024px) {
   .heading-link {
     padding: 10px 10px;
