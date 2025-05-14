@@ -4,7 +4,7 @@
     height: 100%;
   }
 {%- endstyle -%}
-<div class="image-banner-{{section.id}} relative">
+<div class="image-banner relative">
   {% comment %}
     <div class="image-banner-main absolute top-0 left-0 w-full h-full -z-1">
       {% assign image_width = section.settings.image.width | divided_by: section.settings.image.aspect_ratio %}
@@ -51,13 +51,14 @@
       "
     >
       <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">{{ section.settings.heading }}</h1>
-      {% if section.settings.sub_heading != blank %}
-        {{ section.settings.sub_heading }}
-      {% endif %}
-
+      <p>
+        {% if section.settings.sub_heading != blank %}
+          {{ section.settings.sub_heading }}
+        {% endif %}
+      </p>
       <a
         href="{{section.settings.url_1}}"
-        class="btn bg-amber-100 py-3 px-5 inline-block rounded-full mt-4 hover:bg-[#ccc] transition"
+        class="btn bg-amber-100 py-3 px-5 block rounded-full mt-4 hover:bg-[#ccc] transition"
       >
         {{- section.settings.label_1 -}}
       </a>
@@ -66,7 +67,7 @@
 </div>
 {% schema %}
 {
-  "name": "Image Banner",
+  "name": "Home Banner",
   "settings": [
     {
       "type": "image_picker",
@@ -81,7 +82,7 @@
       "type": "range",
       "id": "padding_top_mobile",
       "label": "Padding Top (Mobile)",
-      "min": 0,
+      "min": 50,
       "max": 100,
       "step": 5,
       "unit": "px",
@@ -91,7 +92,7 @@
       "type": "range",
       "id": "padding_top_desktop",
       "label": "Padding Top (Desktop)",
-      "min": 0,
+      "min": 100,
       "max": 500,
       "step": 5,
       "unit": "px",
@@ -101,7 +102,7 @@
       "type": "range",
       "id": "padding_bottom_mobile",
       "label": "Padding Bottom (Mobile)",
-      "min": 0,
+      "min": 50,
       "max": 100,
       "step": 5,
       "unit": "px",
@@ -111,7 +112,7 @@
       "type": "range",
       "id": "padding_bottom_desktop",
       "label": "Padding Bottom (Desktop)",
-      "min": 0,
+      "min": 100,
       "max": 500,
       "step": 5,
       "unit": "px",
@@ -136,7 +137,8 @@
     {
       "type": "richtext",
       "id": "sub_heading",
-      "label": "Sub Heading"
+      "label": "Sub Heading",
+      "default": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
     },
     {
       "type": "text",

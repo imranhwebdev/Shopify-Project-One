@@ -9,12 +9,21 @@
  */
 {
     "sections": {
-        "image_banner": {
-            "type": "image-banner",
+        "home_banner": {
+            "type": "home-banner",
+            "settings": {}
+        },
+        "featured_collection": {
+            "type": "featured-collection",
+            "settings": {}
+        },
+        "multicolumn": {
+            "type": "Multicolumn",
             "settings": {}
         },
     },
     "order":[
-        "image_banner"
+        "home_banner",
+        "featured_collection"
     ]
 }
